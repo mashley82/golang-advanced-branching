@@ -113,8 +113,7 @@ func generateRating() {
 				vehRating = 5.0
 				vehResult.feedbackTotal++
 				for _, word := range text {
-					s := strings.Trim(strings.ToLower(word), " ,.!?\t\n\r")
-					switch s {
+					switch s := strings.Trim(strings.ToLower(word), " ,.!?\t\n\r"); s {
 					case "pleasure", "impressed", "wonderful", "fantastic", "splendid":
 						vehRating += extraPositive
 					case "help", "helpful", "thanks", "thank you", "happy":
@@ -136,6 +135,6 @@ func generateRating() {
 				}
 			}
 		}
-		vehResult = vehicleResult[v.Name]
+		vehicleResult[v.Name] = vehResult
 	}
 }
